@@ -1,40 +1,38 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<CodeBlocks_project_file>
-	<FileVersion major="1" minor="6" />
-	<Project>
-		<Option title="Joc Ghiceste Numarul aleator" />
-		<Option pch_mode="2" />
-		<Option compiler="gcc" />
-		<Build>
-			<Target title="Debug">
-				<Option output="bin/Debug/Joc Ghiceste Numarul aleator" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Debug/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-g" />
-				</Compiler>
-			</Target>
-			<Target title="Release">
-				<Option output="bin/Release/Joc Ghiceste Numarul aleator" prefix_auto="1" extension_auto="1" />
-				<Option object_output="obj/Release/" />
-				<Option type="1" />
-				<Option compiler="gcc" />
-				<Compiler>
-					<Add option="-O2" />
-				</Compiler>
-				<Linker>
-					<Add option="-s" />
-				</Linker>
-			</Target>
-		</Build>
-		<Compiler>
-			<Add option="-Wall" />
-			<Add option="-fexceptions" />
-		</Compiler>
-		<Unit filename="main.cpp" />
-		<Extensions>
-			<lib_finder disable_auto="1" />
-		</Extensions>
-	</Project>
-</CodeBlocks_project_file>
+#include <cstdlib>
+#include <ctime>
+#include <iostream>
+
+using namespace std;
+///variabile globale
+int incercari=0,NA,NumarJucator;
+int main()
+{
+    ///Am generat numarul aleator pana la 100
+    srand((unsigned)time(0));
+    NA = (rand()%100)+1;
+
+    do
+    {
+        cout<<"Introduce un numar: ";
+        cin>>NumarJucator;
+        incercari++;
+        if(NA>NumarJucator)
+        {
+            cout<<"Numarul este mai mare"<<endl;
+        }
+        else if(NA<NumarJucator)
+        {
+            cout<<"Numarul este mai mic"<<endl;
+        }
+        else if(NA==NumarJucator)
+        {
+            cout<<"Ai ghicit"<<endl;
+            cout<<"Numarul era: "<<NA<<endl;
+        }
+
+    }while(NA!=NumarJucator);
+
+    cout<<"Ai incercat de: "<<incercari<<" ori";
+
+}
+
